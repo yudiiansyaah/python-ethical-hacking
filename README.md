@@ -25,9 +25,9 @@ python brute_force.py <URL_FORM_LOGIN> <username1> <username2> <password_list.tx
 python brute_force.py http://example.com/login admin user.txt --username_field email --password_field pass -d 0.5
 ```
 ### Notes:
-- Replace <URL_FORM_LOGIN> with the target login form URL.
-- Ensure the --username_field and --password_field match the field names in the HTML form.
-- Use a delay (-d) to avoid triggering security measures such as rate limiting or IP blocking.
+1. Replace <URL_FORM_LOGIN> with the target login form URL.
+2. Ensure the --username_field and --password_field match the field names in the HTML form.
+3. Use a delay (-d) to avoid triggering security measures such as rate limiting or IP blocking.
 
 
 ## Packet Analyzer:
@@ -84,12 +84,13 @@ python3 scan_port.py 192.168.1.1 -t 200
 Description: Uses 200 threads to perform the scan, speeding up the process.
 
 ### Notes:
-- Replace 192.168.1.1 with the IP address of the target machine.
-- The -p option specifies which ports to scan. Use commas for specific ports or a dash for ranges.
-- The -t option defines the number of threads to use for scanning.
+1. Replace 192.168.1.1 with the IP address of the target machine.
+2. The -p option specifies which ports to scan. Use commas for specific ports or a dash for ranges.
+3. The -t option defines the number of threads to use for scanning.
 
 
 ## Sniffer Network
+
 ### Basic usage:
 ```bash
 python3 sniffer_network.py -i <interface>
@@ -105,21 +106,21 @@ Example 2: Sniff packets on interface 'enp0s3':
 python3 sniffer_network.py -i enp0s3
 ```
 ### Optional arguments:
-- -c, --count <number>: Number of packets to sniff (default: unlimited)
-- -f, --filter <BPF>: Apply a BPF filter to sniff specific packets (e.g., "tcp", "port 80")
+1. -c, --count <number>: Number of packets to sniff (default: unlimited)
+2. -f, --filter <BPF>: Apply a BPF filter to sniff specific packets (e.g., "tcp", "port 80")
+3. Examples with optional arguments:
 
-- Examples with optional arguments:
 1. Sniff packets on interface 'wlan0', limited to 100 packets:
 
 ```bash
 python3 sniffer_network.py -i wlan0 -c 100
 ```
-Sniff TCP packets on interface 'eth0':
+2. Sniff TCP packets on interface 'eth0':
 
 ```bash
 python3 sniffer_network.py -i eth0 -f "tcp"
 ```
-Sniff packets on port 80 using interface 'wlan0':
+3. Sniff packets on port 80 using interface 'wlan0':
 
 ```bash
 python3 sniffer_network.py -i wlan0 -f "port 80"
@@ -135,7 +136,9 @@ sudo python3 sniffer_network.py -i eth0
 
 
 ## Web Scraper
+
 ### Basic usage:
+
 ```bash
 python3 web_scraper.py <url>
 ```
