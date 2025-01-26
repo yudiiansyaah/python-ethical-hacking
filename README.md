@@ -12,12 +12,12 @@ Run the script in the terminal with the following format:
 python brute_force.py <URL_FORM_LOGIN> <username1> <username2> <password_list.txt> --username_field <username_field> --password_field <password_field> -d <delay_in_seconds>
 ```
 ### Arguments:
-1. <URL_FORM_LOGIN>: The URL of the login form to target.
-2. <username1>, <username2>, ...: List of usernames to test.
-3. <password_list.txt>: Path to a text file containing passwords to test.
-4. --username_field <username_field>: The field name for the username in the login form (default: "username").
-5. --password_field <password_field>: The field name for the password in the login form (default: "password").
-6. -d <delay_in_seconds>: Optional delay between login attempts to avoid detection (default: 0).
+1. ``(<URL_FORM_LOGIN>)``: The URL of the login form to target.
+2. ``(<username1>)``, ``(<username2>)``:  List of usernames to test.
+3. ``(<password_list.txt>)``: Path to a text file containing passwords to test.
+4. ``(--username_field <username_field>)``: The field name for the username in the login form (default: "username").
+5. ``(--password_field <password_field>)``: The field name for the password in the login form (default: "password").
+6. ``(-d <delay_in_seconds>)``: Optional delay between login attempts to avoid detection (default: 0).
 
 - Example:
 1. Brute force a login form at http://example.com/login using admin as a username:
