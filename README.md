@@ -1,7 +1,9 @@
-# python-ethical-hacking
-# Brute Force, Packet Analyzer, Port Scanner, Sniffer Network, Web Scraper
+# Python Ethical Hacking
 
-# Brute Force:
+## Brute Force, Packet Analyzer, Port Scanner, Sniffer Network, Web Scraper
+
+
+## Brute Force:
 This script performs a brute-force attack on a login form by iterating through a list of usernames and passwords.
 
 ### Usage:
@@ -27,7 +29,8 @@ python brute_force.py http://example.com/login admin user.txt --username_field e
 - Ensure the --username_field and --password_field match the field names in the HTML form.
 - Use a delay (-d) to avoid triggering security measures such as rate limiting or IP blocking.
 
-# Packet Analyzer:
+
+## Packet Analyzer:
 1. Basic usage with a PCAP file:
 
 ```bash
@@ -49,7 +52,8 @@ python3 packet_analyzer.py capture.pcap -l DEBUG -o output.log
 ```
 (This sets the log level to DEBUG and saves logs to output.log.)
 
-# Port Scanner
+
+## Port Scanner
 
 1. Scan specific ports:
 
@@ -84,7 +88,8 @@ Description: Uses 200 threads to perform the scan, speeding up the process.
 - The -p option specifies which ports to scan. Use commas for specific ports or a dash for ranges.
 - The -t option defines the number of threads to use for scanning.
 
-# Sniffer Network
+
+## Sniffer Network
 ### Basic usage:
 ```bash
 python3 sniffer_network.py -i <interface>
@@ -128,7 +133,8 @@ python3 sniffer_network.py -i wlan0 -f "port 80"
 sudo python3 sniffer_network.py -i eth0
 ```
 
-# Web Scraper
+
+## Web Scraper
 ### Basic usage:
 ```bash
 python3 web_scraper.py <url>
