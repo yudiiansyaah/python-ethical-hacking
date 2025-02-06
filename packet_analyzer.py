@@ -21,12 +21,10 @@ import argparse
 from scapy.all import rdpcap, IP, TCP, UDP, DNS
 from scapy.layers.http import HTTPRequest, HTTPResponse
 
-# Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
 
 def analyze_ip_packet(packet):
-    """Analyzes the IP packet and extracts relevant details."""
     ip_src = packet[IP].src
     ip_dst = packet[IP].dst
     proto = "Unknown"
@@ -46,7 +44,6 @@ def analyze_ip_packet(packet):
     return packet, ip_src, ip_dst, proto, sport, dport
 
 def analyze_http(packet):
-    """Analyzes HTTP requests and responses."""
     if HTTPRequest in packet:
         method = packet[HTTPRequest].Method.decode("utf-8")
         host = packet[HTTPRequest].Host.decode("utf-8")
@@ -58,7 +55,6 @@ def analyze_http(packet):
         logger.info(f"  HTTP Response Status: {status_code}")
 
 def analyze_dns(packet):
-    """Analyzes DNS queries and answers."""
     if DNS in packet:
         if packet.haslayer("DNSQR"):
             qname = packet["DNSQR"].qname.decode("utf-8")
@@ -69,7 +65,6 @@ def analyze_dns(packet):
                     logger.info(f"   DNS Answer: {dnsrr.rdata}")
 
 def analyze_packet(packet):
-    """Analyzes the given packet and prints relevant details."""
     try:
         if IP in packet:
             packet, ip_src, ip_dst, proto, sport, dport = analyze_ip_packet(packet)
@@ -79,7 +74,6 @@ def analyze_packet(packet):
         logger.error(f"Failed to analyze packet: {e}")
 
 def process_pcap(pcap_file):
-    """Processes the given PCAP file."""
     try:
         packets = rdpcap(pcap_file)
         logger.info(f"Processing {len(packets)} packets from {pcap_file}")
@@ -89,7 +83,6 @@ def process_pcap(pcap_file):
         logger.error(f"Error processing PCAP file: {e}")
 
 def main():
-    """Main function to parse arguments and start packet analysis."""
     parser = argparse.ArgumentParser(description="Packet Analyzer")
     parser.add_argument("pcap_file", help="Path to the PCAP file")
     parser.add_argument("-l", "--log", choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
@@ -97,7 +90,6 @@ def main():
     parser.add_argument("-o", "--output", help="Output file to save the results")
     args = parser.parse_args()
 
-    # Set logging level based on user input
     logger.setLevel(args.log.upper())
 
     pcap_file = args.pcap_file
